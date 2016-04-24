@@ -15,12 +15,9 @@ parse source =
 
 
 imports : List RawImport -> Dict.Dict String Import
-imports rawImports =
-  let toDict list =
-        Dict.union (Dict.fromList (List.map toImport list)) defaultImports
-  in
-      toDict rawImports
-
+imports rawImportList =
+  Dict.union (Dict.fromList (List.map toImport rawImportList)) defaultImports
+  
 
 (=>) name exposed =
   (name, Import Nothing exposed)
